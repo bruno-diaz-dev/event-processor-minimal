@@ -18,7 +18,7 @@ cat <<EOF > output/event.json
   "title": "$TITLE",
   "author": "$AUTHOR",
   "labels": $LABELS
-  }
-  EOF
+}
+EOF
 
   echo "Event processed successfully"
