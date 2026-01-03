@@ -6,13 +6,14 @@ on:
 
 permissions:
   contents: read
+  issues: write
 
 jobs:
   process-issue:
     runs-on: ubuntu-latest
 
     steps:
-      - name: CHeckout tepo
+      - name: Checkout repo
         uses: actions/checkout@v4
 
       - name: Install jq
@@ -23,6 +24,7 @@ jobs:
         env:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_PATH: ${{ github.event_path }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload event artifact
         uses: actions/upload-artifact@v4
