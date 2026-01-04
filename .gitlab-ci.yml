@@ -5,7 +5,7 @@ inspect_context:
   stage: inspect
   image: alpine:3.19
   script: |
-    - echo "Pipeline source: $CI_PIPELINE_SOURCE"
-    - echo "Commit SHA: $CI_COMMIT_SHA"
-    - echo "Project path: $CI_PROJECT_PATH"
-    - echo "Branch: $CI_COMMIT_BRANCH"
+    echo "Pipeline source: $CI_PIPELINE_SOURCE"
+    echo "Commit SHA: $CI_COMMIT_SHA"
+    echo "Project path: $CI_PROJECT_PATH"
+    echo "Branch: $CI_COMMIT_BRANCH"
