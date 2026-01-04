@@ -1,8 +1,12 @@
-name: ISsue Automation
+name: Issue Automation
 
 on:
   issues:
     types: [opened]
+
+permissions:
+  contents: read
+  issues: write
 
 jobs:
   issue-automation:
