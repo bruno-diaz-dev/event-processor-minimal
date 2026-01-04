@@ -97,3 +97,11 @@ This repository is intended for:
 - Understanding event payload processing
 
 - Building a portfolio of real, explainable automation patterns
+
+---
+
+## Author
+
+### Bruno Mijail Díaz Barba | Azure DevOps Engineer 
+
+#### If this repo helped you give it a star
