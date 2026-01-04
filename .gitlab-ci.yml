@@ -8,4 +8,4 @@ inspect_context:
     - echo "Pipeline source: $CI_PIPELINE_SOURCE"
     - echo "Commit SHA: $CI_COMMIT_SHA"
     - echo "Project path: $CI_PROJECT_PATH"
-    - echo "Branch: CI_COMMIT_BRANCH"
+    - echo "Branch: $CI_COMMIT_BRANCH"
