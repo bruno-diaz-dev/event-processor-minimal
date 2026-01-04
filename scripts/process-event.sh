@@ -34,8 +34,12 @@ COMMENT_BODY=$(jq -n \
            "Labels: " + (if ($labels | length) == 0 then "none" else ($labels | join(", ")) end))
    }')
 
-curl -sf -X POST \
-  -H "Authorization: Bearer $GITHUB_TOKEN" \
-  -H "Accept: application/vnd.github+json" \
-  https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/$ISSUE_NUMBER/comments \
-  -d "$COMMENT_BODY"
+if [[ "${COMMENT_ENABLED:-true}" == "true" ]]; then
+  curl -sf -X POST \
+    -H "Authorization: Bearer $GITHUB_TOKEN" \
+    -H "Accept: application/vnd.github+json" \
+    https://api.github.com/repos/${GITHUB_REPOSITORY}/issues/$ISSUE_NUMBER/comments \
+    -d "$COMMENT_BODY"
+else
+  echo "Commenting disabled by input"
+fi

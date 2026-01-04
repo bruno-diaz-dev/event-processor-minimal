@@ -1,0 +1,11 @@
+name: ISsue Automation
+
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  issue-automation:
+    uses: ./.github/workflows/issue-event-processor-reusable.yml
+    with:
+      comment-enabled: true

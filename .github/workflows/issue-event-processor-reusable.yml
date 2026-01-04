@@ -1,8 +1,13 @@
-name: Issue Event Processor
+name: Reusable Issue Event Processor
 
 on:
-  issues:
-    types: [opened]
+  workflow_call:
+    inputs:
+      comment-enabled:
+        description: 'Whether to post a comment on the issue'
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: read
@@ -13,8 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Install jq
         run: sudo apt-get update && sudo apt-get install -y jq
@@ -25,9 +29,4 @@ jobs:
           EVENT_NAME: ${{ github.event_name }}
           EVENT_PATH: ${{ github.event_path }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Upload event artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: issue-event-payload
-          path: output/event.json
+          COMMENT_ENABLED: ${{ inputs.comment-enabled }}
