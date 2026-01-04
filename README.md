@@ -104,4 +104,4 @@ This repository is intended for:
 
 ### Bruno Mijail Díaz Barba | Azure DevOps Engineer 
 
-#### If this repo helped you give it a star
+#### Feedback and suggestions are welcome.
