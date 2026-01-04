@@ -4,6 +4,8 @@ stages:
 inspect_context:
   stage: inspect
   image: alpine:3.19
+  rules:
+    - if '$CI_PIPELINE_SOURCE' == "push" && '$CI_COMMIT_BRANCH' == "master"
   script: |
     echo "Pipeline source: $CI_PIPELINE_SOURCE"
     echo "Commit SHA: $CI_COMMIT_SHA"
